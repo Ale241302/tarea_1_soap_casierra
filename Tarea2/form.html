@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios web</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <form action="cliente.php" method="post">
+        <label for="nomb">Nombre:</label>
+        <input type="text" name="nomb" />
+        <input type="text" name="funcion" value="conteo" hidden/>
+        <input type="submit" value="Contar Caracteres" />
+    </form>
+    <hr/>
+    <form action="cliente.php" method="post">
+        <label for="num1">Numero 1:</label>
+        <input type="number" step="any" name="num1" />
+        <label for="num2">Numero 2:</label>
+        <input type="number" step="any" name="num2" />
+        <input type="text" name="funcion" value="sumar" hidden />
+        <input type="submit" value="Sumar" />
+    </form>
+    <hr/>
+    <form action="cliente.php" method="post">
+        <label for="num1">Numero 1:</label>
+        <input type="number" step="any" name="num1" />
+        <label for="num2">Numero 2:</label>
+        <input type="number" step="any" name="num2" />
+        <input type="text" name="funcion" value="restar" hidden />
+        <input type="submit" value="Restar" />
+    </form>
+    <hr/>
+    <form action="cliente.php" method="post">
+        <label for="num1">Numero 1:</label>
+        <input type="number" step="any" name="num1" />
+        <label for="num2">Numero 2:</label>
+        <input type="number" step="any" name="num2" />
+        <input type="text" name="funcion" value="division" hidden />
+        <input type="submit" value="Dividir" />
+    </form>
+    <hr/>
+    <form action="cliente.php" method="post">
+        <label for="num1">Numero 1:</label>
+        <input type="number" step="any" name="num1" />
+        <label for="num2">Numero 2:</label>
+        <input type="number" step="any" name="num2" />
+        <input type="text" name="funcion" value="multiplicar" hidden />
+        <input type="submit" value="Multiplicar" />
+    </form>
+    <hr/>
+</body>
+</html>
