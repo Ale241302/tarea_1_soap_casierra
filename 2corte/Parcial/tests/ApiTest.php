@@ -55,7 +55,7 @@ class ApiTest extends TestCase
     $_REQUEST['funcion'] = 'eliminarContacto';
     $_DELETE = $data;
 
-    $response = eliminarContacto($this->db, $data);  // Pasa los datos como segundo argumento
+    $response = eliminarContacto($this->db, $data); 
 
     $this->assertEquals('Contacto eliminado exitosamente', $response['message']);
     $this->assertEquals(200, $response['status_code']);
@@ -74,7 +74,7 @@ public function testModificarContacto()
     $_REQUEST['funcion'] = 'modificarContacto';
     $_PUT = $data;
 
-    $response = modificarContacto($this->db, $data);  // Pasa los datos como segundo argumento
+    $response = modificarContacto($this->db, $data); 
 
     $this->assertEquals('Contacto modificado exitosamente', $response['message']);
     $this->assertEquals(200, $response['status_code']);
