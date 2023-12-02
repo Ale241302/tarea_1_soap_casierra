@@ -1,0 +1,1 @@
+{"version":1,"defects":{"ApiTest::testCrearContacto":3,"ApiTest::testBuscarContacto":3,"ApiTest::testEliminarContacto":3,"ApiTest::testModificarContacto":3},"times":{"ApiTest::testCrearContacto":0.016,"ApiTest::testBuscarContacto":0.001,"ApiTest::testEliminarContacto":0.005,"ApiTest::testModificarContacto":0.003}}

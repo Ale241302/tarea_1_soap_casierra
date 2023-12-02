@@ -1,0 +1,209 @@
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  description: Documentación de servicio REST
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost/3corte/Tarea1/src
+tags:
+  - name: Crud
+    description: Documentación de crud
+paths:
+  /Api.php:
+    get:
+      tags:
+        - Crud
+      summary: Obtener un usuario por nombre
+      operationId: getUserByName
+      parameters:
+        - name: funcion
+          in: query
+          description: Función para buscar contacto
+          required: true
+          schema:
+            type: string
+        - name: nombre
+          in: query
+          description: Nombre a buscar contacto
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/index'
+        '404':
+          description: Usuario no encontrado
+
+    post:
+      tags:
+        - Crud
+      summary: Crear un nuevo usuario
+      operationId: creaContacto
+      requestBody:
+       required: true
+       content:
+        application/x-www-form-urlencoded:
+         schema:
+          type: object
+          properties:
+            funcion:
+              type: string
+              description: Funcion
+            nombre:
+              type: string
+              description: Nombre
+            apellidos:
+              type: string
+              description: Apellidos
+            direccion:
+              type: string
+              description: Direccion
+      responses:
+       '201':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/index'
+       '400':
+         description: Solicitud no válida
+       '500':
+         description: Error interno del servidor
+
+    delete:
+      tags:
+        - Crud
+      summary: Eliminar un usuario por nombre
+      operationId: deleteUserByName
+      parameters:
+        - name: funcion
+          in: query
+          description: Función para eliminar contacto
+          required: true
+          schema:
+            type: string
+        - name: nombre
+          in: query
+          description: Nombre a eliminar contacto
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Usuario eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/index'
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+
+    put:
+      tags:
+        - Crud
+      summary: Actualizar un usuario por nombre
+      operationId: updateUserByName
+      parameters:
+        - name: funcion
+          in: query
+          description: Función para buscar contacto
+          required: true
+          schema:
+            type: string
+        - name: nombre
+          in: query
+          description: Nombre a buscar contacto
+          required: true
+          schema:
+            type: string
+        - name: nuevo_nombre
+          in: query
+          description: Nuevo Nombre
+          required: true
+          schema:
+            type: string
+        - name: nuevo_apellidos
+          in: query
+          description: Nuevos Apellidos
+          required: true
+          schema:
+            type: string
+        - name: nuevo_direccion
+          in: query
+          description: Nueva Direccion
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/index'
+        '400':
+          description: Solicitud no válida
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+
+components:
+  schemas:
+    index:
+      required:
+        - nombre
+        - apellidos
+        - direccion
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Juan Antonio
+        apellidos:
+          type: string
+          example: Gómez
+        direccion:
+          type: string
+          example: 1
+      xml:
+        name: pet
+
+    User:
+      type: object
+      properties:
+        nombre:
+          type: string
+        apellidos:
+          type: string
+        direccion:
+          type: string
+
+  securitySchemes:
+    petstore_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: http://localhost/3corte/Tarea1/src
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
